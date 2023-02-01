@@ -8,6 +8,7 @@ import PrimeVue from 'primevue/config'
 import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown'
 import Calendar from 'primevue/calendar'
+import InputText from 'primevue/inputtext'
 
 // table
 import DataTable from 'primevue/datatable'
@@ -21,6 +22,9 @@ const PrimeComponents: Component[] = [
     Button,
     Dropdown,
     Calendar,
+    InputText,
+
+    // table
     DataTable,
     Column,
     ColumnGroup
