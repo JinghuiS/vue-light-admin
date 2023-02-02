@@ -16,7 +16,7 @@ specifiers:
   primeicons: ^6.0.1
   primevue: ^3
   typescript: ~4.7.4
-  vdi: ^1.0.0
+  vdi: ^1.1.0
   vee-validate: ^4.7.3
   vite: ^4.0.0
   vue: ^3.2.45
@@ -28,7 +28,7 @@ dependencies:
   '@wendellhu/redi': 0.6.2
   primeicons: 6.0.1
   primevue: 3.23.0_5f3kdig7wnjzidee4jtphf73cq
-  vdi: 1.0.0
+  vdi: 1.1.0
   vee-validate: 4.7.3_vue@3.2.45
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
@@ -2670,8 +2670,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vdi/1.0.0:
-    resolution: {integrity: sha512-h+1/xTQ4cR5UaQItTP9a41OC2bN9EU0VecO6M8hJjZXfBL6d3/v1cB19DesZV51kYf5xRxmeW7XSOdJBulmLuA==}
+  /vdi/1.1.0:
+    resolution: {integrity: sha512-f836QQ8LgApAAuT7zT5qr3bPmPLfa00OBUbr/6pnEK7C8eAEf3ZcV4gyarXinlYCg/c+6Yl3F0MF3owCAlDf8A==}
     dependencies:
       '@wendellhu/redi': 0.6.2
       vue: 3.2.45
