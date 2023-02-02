@@ -8,10 +8,26 @@ const field = useField<any>(toRef(props, 'name'))
 
 <template>
     <div>
-        <label v-if="label" :for="name">{{ label }}</label>
-        <slot v-bind="field"></slot>
-        <small :id="`${name}-help`" class="p-error">{{
+        <label
+            :class="field.errorMessage.value && 'p-error'"
+            v-if="label"
+            :for="name"
+            >{{ label }}</label
+        >
+        <div :class="field.errorMessage.value && 'p-error'">
+            <slot v-bind="field"></slot>
+        </div>
+        <small v-if="field.errorMessage.value" class="p-error">{{
             field.errorMessage.value
         }}</small>
     </div>
 </template>
+
+<style scoped>
+.field {
+    margin-bottom: 1.5rem;
+}
+.field > small {
+    margin-top: 0.25rem;
+}
+</style>
