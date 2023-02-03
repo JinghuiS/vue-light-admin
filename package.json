@@ -14,9 +14,10 @@
         "@wendellhu/redi": "^0.6.2",
         "primeicons": "^6.0.1",
         "primevue": "^3",
-        "vdi": "^1.1.0",
+        "vdi": "^1.2.2",
         "vee-validate": "^4.7.3",
         "vue": "^3.2.45",
+        "vue-modal-provider": "^0.1.2",
         "vue-router": "^4.1.6",
         "yup": "^0.32.11"
     },

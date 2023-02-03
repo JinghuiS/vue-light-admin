@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import { ModalProvider } from 'vue-modal-provider'
 </script>
 
 <template>
-    <RouterView />
+    <ModalProvider>
+        <RouterView />
+    </ModalProvider>
 </template>

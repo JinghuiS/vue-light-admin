@@ -1,3 +1,4 @@
+import { vdi } from 'vdi'
 import { createApp, type Component } from 'vue'
 import { setupComponents } from './components/setupComponents'
 import { setupRouter } from './router/setupRouter'
@@ -22,6 +23,7 @@ import { setupRouter } from './router/setupRouter'
  */
 export async function setupApp(app: Component) {
     const instance = createApp(app)
+    instance.use(vdi())
     setupRouter(instance)
     setupComponents(instance)
     return instance

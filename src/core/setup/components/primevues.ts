@@ -9,6 +9,9 @@ import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown'
 import Calendar from 'primevue/calendar'
 import InputText from 'primevue/inputtext'
+import ProgressSpinner from 'primevue/progressspinner'
+
+import Dialog from 'primevue/dialog'
 
 // table
 import DataTable from 'primevue/datatable'
@@ -23,6 +26,8 @@ const PrimeComponents: Component[] = [
     Dropdown,
     Calendar,
     InputText,
+    Dialog,
+    ProgressSpinner,
 
     // table
     DataTable,

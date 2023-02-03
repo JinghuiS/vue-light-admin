@@ -16,10 +16,11 @@ specifiers:
   primeicons: ^6.0.1
   primevue: ^3
   typescript: ~4.7.4
-  vdi: ^1.1.0
+  vdi: ^1.2.2
   vee-validate: ^4.7.3
   vite: ^4.0.0
   vue: ^3.2.45
+  vue-modal-provider: ^0.1.2
   vue-router: ^4.1.6
   vue-tsc: ^1.0.12
   yup: ^0.32.11
@@ -28,9 +29,10 @@ dependencies:
   '@wendellhu/redi': 0.6.2
   primeicons: 6.0.1
   primevue: 3.23.0_5f3kdig7wnjzidee4jtphf73cq
-  vdi: 1.1.0
+  vdi: 1.2.2
   vee-validate: 4.7.3_vue@3.2.45
   vue: 3.2.45
+  vue-modal-provider: 0.1.2
   vue-router: 4.1.6_vue@3.2.45
   yup: 0.32.11
 
@@ -2670,8 +2672,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vdi/1.1.0:
-    resolution: {integrity: sha512-f836QQ8LgApAAuT7zT5qr3bPmPLfa00OBUbr/6pnEK7C8eAEf3ZcV4gyarXinlYCg/c+6Yl3F0MF3owCAlDf8A==}
+  /vdi/1.2.2:
+    resolution: {integrity: sha512-N1OrUiYEXjhumYCJh60ahXQePFoyOVmX7+GDgUOZk3WoPewO0F+Kc+gYmz6ve4AoZFrumDMRm4wvR+gFTSc1SQ==}
     dependencies:
       '@wendellhu/redi': 0.6.2
       vue: 3.2.45
@@ -2738,6 +2740,12 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-modal-provider/0.1.2:
+    resolution: {integrity: sha512-3/WyjTNHEz8/BkuBMQGSWVShv22jhWLx4bxMQ709JIZSi4Fmne/u2cxjDClRWNMwXpN9pt8+QI0h2+1biZ2w8A==}
+    dependencies:
+      vue: 3.2.45
+    dev: false
 
   /vue-router/4.1.6_vue@3.2.45:
     resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}
