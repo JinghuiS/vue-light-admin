@@ -15,7 +15,10 @@ const field = useField<any>(toRef(props, 'name'))
             >{{ label }}</label
         >
         <div :class="field.errorMessage.value && 'p-error'">
-            <slot v-bind="field"></slot>
+            <slot
+                :class="{ 'p-invalid': field.errorMessage.value }"
+                v-bind="field"
+            ></slot>
         </div>
         <small v-if="field.errorMessage.value" class="p-error">{{
             field.errorMessage.value

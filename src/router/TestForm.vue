@@ -25,10 +25,10 @@ const validationSchema = yup.object().shape({
     <div>
         <VeeForm @submit="onSubmit" :validation-schema="validationSchema">
             <VeeFormItem name="test" label="测试" v-slot="field">
-                <InputText v-model="field.value.value" />
+                <InputText :class="field.class" v-model="field.value.value" />
             </VeeFormItem>
             <VeeFormItem name="name" label="测试2" v-slot="field">
-                <InputText v-model="field.value.value" />
+                <InputText :class="field.class" v-model="field.value.value" />
             </VeeFormItem>
 
             <Button type="submit">提交</Button>
