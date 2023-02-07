@@ -1,4 +1,10 @@
-<script setup lang="ts" name="VeeFormItem">
+<script lang="ts">
+export default {
+    name: 'VeeFormItem'
+}
+</script>
+
+<script setup lang="ts">
 import { toRef } from 'vue'
 import { useField } from 'vee-validate'
 
