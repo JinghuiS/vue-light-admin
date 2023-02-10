@@ -1,18 +1,21 @@
 import { Inject } from '@wendellhu/redi'
 import axios, { type AxiosRequestConfig } from 'axios'
-import type { HttpClientErrorInterceptor } from './http-type'
+import type {
+    HttpClientErrorInterceptor,
+    HttpClientImplements,
+    HttpRequestConfig
+} from './http-type'
 import { CreateHttpInterceptor } from './httpInterceptor'
 import { HTTP_CLIENT_CONFIG } from './token'
 
-export class AxiosHttpClient extends axios.Axios {
+export class AxiosHttpClient implements HttpClientImplements {
+    instance
     constructor(
         @Inject(HTTP_CLIENT_CONFIG) public config: AxiosRequestConfig,
         @Inject(CreateHttpInterceptor)
         public CreateHttpInterceptor: CreateHttpInterceptor
     ) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
-        super({ ...axios.defaults, ...config })
+        this.instance = axios.create({ ...axios.defaults, ...config })
 
         /**
          * Register Interceptor
@@ -20,7 +23,7 @@ export class AxiosHttpClient extends axios.Axios {
          */
         this.CreateHttpInterceptor.register().map((item) => {
             const errorItem = item as unknown as HttpClientErrorInterceptor
-            this.interceptors.request.use(
+            this.instance.interceptors.request.use(
                 (args) => {
                     return item.request(args)
                 },
@@ -31,7 +34,7 @@ export class AxiosHttpClient extends axios.Axios {
                     return this.CreateHttpInterceptor.defaultError(error)
                 }
             )
-            this.interceptors.response.use(
+            this.instance.interceptors.response.use(
                 (args) => {
                     return item.response(args)
                 },
@@ -42,6 +45,90 @@ export class AxiosHttpClient extends axios.Axios {
                     return this.CreateHttpInterceptor.defaultError(error)
                 }
             )
+        })
+        /**
+         * Filter data
+         * 过滤数据
+         */
+        this.instance.interceptors.response.use((args) => {
+            return args.data
+        })
+    }
+
+    get<T = any, C = object & HttpRequestConfig>(
+        url: string,
+        config?: C | undefined
+    ): Promise<T> {
+        return this.instance.request<any, T>({
+            url: url,
+            ...config,
+            method: 'GET'
+        })
+    }
+
+    post<T = any, C = object & HttpRequestConfig>(
+        url: string,
+        config?: C | undefined
+    ): Promise<T> {
+        return this.instance.request<any, T>({
+            url: url,
+            ...config,
+            method: 'POST'
+        })
+    }
+
+    put<T = any, C = object & HttpRequestConfig>(
+        url: string,
+        config?: C | undefined
+    ): Promise<T> {
+        return this.instance.request<any, T>({
+            url: url,
+            ...config,
+            method: 'PUT'
+        })
+    }
+
+    delete<T = any, C = object & HttpRequestConfig>(
+        url: string,
+        config?: C | undefined
+    ): Promise<T> {
+        return this.instance.request<any, T>({
+            url: url,
+            ...config,
+            method: 'DELETE'
+        })
+    }
+
+    head<T = any, C = object & HttpRequestConfig>(
+        url: string,
+        config?: C | undefined
+    ): Promise<T> {
+        return this.instance.request<any, T>({
+            url: url,
+            ...config,
+            method: 'HEAD'
+        })
+    }
+
+    patch<T = any, C = object & HttpRequestConfig>(
+        url: string,
+        config?: C | undefined
+    ): Promise<T> {
+        return this.instance.request<any, T>({
+            url: url,
+            ...config,
+            method: 'PATCH'
+        })
+    }
+
+    options<T = any, C = object & HttpRequestConfig>(
+        url: string,
+        config?: C | undefined
+    ): Promise<T> {
+        return this.instance.request<any, T>({
+            url: url,
+            ...config,
+            method: 'OPTIONS'
         })
     }
 }

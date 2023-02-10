@@ -14,3 +14,18 @@ export interface HttpClientErrorInterceptor<Config = any, Response = any> {
 export type HttpClientType = {
     request<T = any, R = T, D = any>(config: D): Promise<R>
 }
+
+export type HttpRequestConfig = {
+    data?: any
+    params?: any
+}
+
+export interface HttpClientImplements<config = object & HttpRequestConfig> {
+    get<T = any, C = config>(url: string, config?: C): Promise<T>
+    post<T = any, C = config>(url: string, config?: C): Promise<T>
+    put<T = any, C = config>(url: string, config?: C): Promise<T>
+    delete<T = any, C = config>(url: string, config?: C): Promise<T>
+    head<T = any, C = config>(url: string, config?: C): Promise<T>
+    patch<T = any, C = config>(url: string, config?: C): Promise<T>
+    options<T = any, C = config>(url: string, config?: C): Promise<T>
+}

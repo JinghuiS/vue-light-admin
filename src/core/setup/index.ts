@@ -1,4 +1,6 @@
+import { AxiosHttpClient } from '@/shared/utils/http/axios'
 import { HttpModule } from '@/shared/utils/http/http.module'
+import { HTTP_CLIENT } from '@/shared/utils/http/token'
 import { vdi } from 'vdi'
 import { createApp, type Component } from 'vue'
 import { GlobalService } from '../services/global.service'
@@ -25,7 +27,17 @@ import { setupRouter } from './router/setupRouter'
  */
 export async function setupApp(app: Component) {
     const instance = createApp(app)
-    instance.use(vdi([[GlobalService], ...HttpModule({})]))
+    instance.use(
+        vdi([
+            [GlobalService],
+            ...HttpModule({}),
+            /**
+             * Inject http-client
+             * 注入http-client
+             */
+            [HTTP_CLIENT, { useClass: AxiosHttpClient }]
+        ])
+    )
     setupRouter(instance)
     setupComponents(instance)
     return instance

@@ -17,12 +17,19 @@ const router = useRouter()
 
 const { show } = usePrimeModal({ component: TestModal })
 
-const http = useDependency<AxiosHttpClient>(HTTP_CLIENT)
+const http = useDependency(HTTP_CLIENT)
+
+type RandomDTO = {
+    message: string
+    status: string
+}
 
 onMounted(() => {
-    http.get('https://dog.ceo/api/breeds/image/random').then((res) => {
-        console.log(res)
-    })
+    http.get<RandomDTO>('https://dog.ceo/api/breeds/image/random').then(
+        (res) => {
+            console.log(res.message)
+        }
+    )
 })
 
 function onSubmit(values: any) {
