@@ -2,6 +2,7 @@
 import { GlobalService } from '@/core/services/global.service'
 import { usePrimeModal } from '@/shared/components/modal/useModel'
 import type { AxiosHttpClient } from '@/shared/utils/http/axios'
+import { useHttp } from '@/shared/utils/http/hooks'
 import { HTTP_CLIENT } from '@/shared/utils/http/token'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
@@ -17,7 +18,7 @@ const router = useRouter()
 
 const { show } = usePrimeModal({ component: TestModal })
 
-const http = useDependency(HTTP_CLIENT)
+const http = useHttp()
 
 type RandomDTO = {
     message: string
