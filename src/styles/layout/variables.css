@@ -1,0 +1,5 @@
+.layout-wrapper {
+    --transitionDuration: 0.2s;
+    --borderRadius: 12px;
+    --scale: 14px;
+}

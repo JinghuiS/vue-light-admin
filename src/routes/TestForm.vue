@@ -1,12 +1,37 @@
 <script lang="ts" setup>
+import { GlobalService } from '@/core/services/global.service'
 import { usePrimeModal } from '@/shared/components/modal/useModel'
+import type { AxiosHttpClient } from '@/shared/utils/http/axios'
+import { HTTP_CLIENT } from '@/shared/utils/http/token'
+import Button from 'primevue/button'
+import InputText from 'primevue/inputtext'
+import { useDependency } from 'vdi'
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import * as yup from 'yup'
 import TestModal from './TestModal.vue'
 
+const globalService = useDependency(GlobalService)
+
+const router = useRouter()
+
 const { show } = usePrimeModal({ component: TestModal })
+
+const http = useDependency<AxiosHttpClient>(HTTP_CLIENT)
+
+onMounted(() => {
+    http.get('https://dog.ceo/api/breeds/image/random').then((res) => {
+        console.log(res)
+    })
+})
 
 function onSubmit(values: any) {
     console.log(JSON.stringify(values, null, 2))
+}
+
+function change() {
+    globalService.config.value.user_name = '首页'
+    router.push('admin/test')
 }
 
 const validationSchema = yup.object().shape({
@@ -33,6 +58,6 @@ const validationSchema = yup.object().shape({
 
             <Button type="submit">提交</Button>
         </VeeForm>
-        <Button @click="show">测试弹窗</Button>
+        <Button @click="change">测试弹窗</Button>
     </div>
 </template>

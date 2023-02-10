@@ -1,0 +1,6 @@
+@media (min-width: 992px) {
+    .layout-wrapper .layout-main-container {
+        margin-left: 0;
+        padding-left: 2rem;
+    }
+}
