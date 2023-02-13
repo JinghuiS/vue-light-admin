@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { GlobalService } from '@/core/services/global.service'
 import { usePrimeModal } from '@/shared/components/modal/useModel'
-import type { AxiosHttpClient } from '@/shared/utils/http/axios'
+import SidebarGroup from '@/shared/components/sidebar/SidebarGroup.vue'
+
 import { useHttp } from '@/shared/utils/http/hooks'
-import { HTTP_CLIENT } from '@/shared/utils/http/token'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import { useDependency } from 'vdi'

@@ -1,6 +1,6 @@
 @import './menu.css';
 @import './variables.css';
-@import './content.css';
+/* @import './content.css'; */
 @import './responsive.css';
 a {
     text-decoration: none;
@@ -8,4 +8,5 @@ a {
 
 .layout-wrapper {
     min-height: 100vh;
+    display: flex;
 }

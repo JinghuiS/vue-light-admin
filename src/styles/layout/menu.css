@@ -1,58 +1,8 @@
-.layout-sidebar {
-    position: fixed;
-    width: 300px;
-    height: calc(100vh - 9rem);
-    z-index: 999;
-    overflow-y: auto;
-    user-select: none;
-    top: 7rem;
-    left: 2rem;
-    transition: transform var(--transitionDuration),
-        left var(--transitionDuration);
-    background-color: var(--surface-overlay);
-    border-radius: var(--borderRadius);
-    padding: 0.5rem 1.5rem;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.02), 0px 0px 2px rgba(0, 0, 0, 0.05),
-        0px 1px 4px rgba(0, 0, 0, 0.08);
+.menu-item-active {
+    @apply bg-slate-100 text-indigo-600;
 }
-
-.layout-menu {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.layout-menu a {
-    user-select: none;
-}
-.layout-menu a .active-menuitem > .layout-submenu-toggler {
-    transform: rotate(-180deg);
-}
-.layout-menu ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-.layout-menu ul a {
-    display: flex;
-    align-items: center;
-    position: relative;
-    outline: 0 none;
-    color: var(--text-color);
-    cursor: pointer;
-    padding: 0.75rem 1rem;
-    border-radius: $borderRadius;
-    transition: background-color $transitionDuration,
-        box-shadow $transitionDuration;
-}
-.layout-menu ul a .layout-menuitem-icon {
-    margin-right: 0.5rem;
-}
-
-.layout-menu ul a .layout-submenu-toggler {
-    font-size: 75%;
-    margin-left: auto;
-    transition: transform $transitionDuration;
+.menu-sub-active {
+    @apply text-indigo-600;
 }
 
 .layout-submenu-enter-from,

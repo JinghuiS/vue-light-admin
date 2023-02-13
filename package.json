@@ -27,6 +27,7 @@
     "devDependencies": {
         "@rushstack/eslint-patch": "^1.1.4",
         "@types/node": "^18.11.12",
+        "@unocss/transformer-directives": "^0.49.4",
         "@vitejs/plugin-vue": "^4.0.0",
         "@vitejs/plugin-vue-jsx": "^3.0.0",
         "@vue/eslint-config-prettier": "^7.0.0",

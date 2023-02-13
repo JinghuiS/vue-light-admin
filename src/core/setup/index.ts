@@ -38,7 +38,9 @@ export async function setupApp(app: Component) {
             [HTTP_CLIENT, { useClass: AxiosHttpClient }]
         ])
     )
+
     setupRouter(instance)
     setupComponents(instance)
+
     return instance
 }

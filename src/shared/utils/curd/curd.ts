@@ -1,10 +1,15 @@
 import { CurdBasePageService } from './page'
-
+import { Inject } from '@wendellhu/redi'
+import { HTTP_CLIENT } from '../http/token'
+import type { HttpClientImplements } from '../http/http-type'
 export abstract class BaseCurd<T extends object> {
     public path: string = ''
-    constructor() {
+
+    public page
+
+    constructor(@Inject(HTTP_CLIENT) public http: HttpClientImplements) {
         const baseData = setParam(this)
-        new CurdBasePageService<T>(this.path)
+        this.page = new CurdBasePageService<T>(this.path, this.http)
         this.path = `${baseData.baseUrl}`
     }
 }

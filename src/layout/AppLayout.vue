@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { onProvider, useDependency } from 'vdi'
 import { onMounted } from 'vue'
+import AppMenu from './AppMenu.vue'
 import { LayoutService } from './layout.service'
 
 onProvider([[LayoutService]])
@@ -14,8 +15,9 @@ onMounted(() => {
 
 <template>
     <div class="layout-wrapper">
-        <div class="layout-main-container">
-            <div class="layout-main">
+        <AppMenu />
+        <div class="layout-main-container border-l border-l-slate-200">
+            <div class="layout-main h-full px-8 py-6">
                 <router-view></router-view>
             </div>
         </div>
