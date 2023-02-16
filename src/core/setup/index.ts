@@ -1,6 +1,6 @@
 import { createApp, type Component } from 'vue'
 import { setupComponents } from './components/setupComponents'
-import { setupDI } from './di/setupDi'
+import { setupDI } from './di/setupDI'
 import { setupRouter } from './router/setupRouter'
 
 /**

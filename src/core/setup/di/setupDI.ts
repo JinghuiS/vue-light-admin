@@ -1,4 +1,4 @@
-import { vdi } from 'vdi'
+import { vdi, CreateDirective, CREATED_VUE_APP_EXECUTION } from 'vdi'
 import type { App } from 'vue'
 
 import { AxiosHttpClient } from '@/shared/utils/http/axios'
@@ -15,7 +15,8 @@ export function setupDI(instance: App) {
              * Inject http-client
              * 注入http-client
              */
-            [HTTP_CLIENT, { useClass: AxiosHttpClient }]
+            [HTTP_CLIENT, { useClass: AxiosHttpClient }],
+            [CREATED_VUE_APP_EXECUTION, { useClass: CreateDirective }]
         ])
     )
 }

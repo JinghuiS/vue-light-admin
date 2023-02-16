@@ -42,7 +42,7 @@ const isActive = computed(() => {
     <div>
         <SidebarGroupLabel v-if="groupLabel" :label="groupLabel" />
         <template v-if="children">
-            <button
+            <div
                 @click="subClick"
                 :style="{
                     paddingLeft: level * 20 + 'px'
@@ -50,10 +50,10 @@ const isActive = computed(() => {
                 :class="{
                     'menu-sub-active': isActive
                 }"
-                class="inline-flex items-center text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-100 dark:hover:text-slate-100 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent h-9 px-2 rounded-md w-full justify-start mb-2"
+                class="cursor-pointer inline-flex items-center text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-100 dark:hover:text-slate-100 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent h-9 px-2 rounded-md w-full justify-start mb-2"
             >
                 {{ label }}
-            </button>
+            </div>
             <Transition name="layout-submenu">
                 <div v-show="show">
                     <SidebarSubMenu
