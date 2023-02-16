@@ -43,12 +43,17 @@ export class PermissionDirectiveService implements DirectiveImplements {
         let { parentEl, comment } = cache
         if (this.permissionService.checkPermission(value)) {
             // 显示
+
             if (
                 comment &&
                 comment.nodeType === 8 &&
                 comment.nodeValue === this.completeDirectiveName
             ) {
                 parentEl?.replaceChild(el, comment)
+                this.elMaps.set(el, {
+                    parentEl: el.parentElement,
+                    parentNode: el.parentNode
+                })
             }
         } else {
             if (comment) {
