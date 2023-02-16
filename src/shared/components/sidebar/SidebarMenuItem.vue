@@ -14,19 +14,19 @@ const props = defineProps<{
 const router = useRouter()
 const sidebarService = useDependency(SidebarService)
 function menuItemClick() {
-    sidebarService.activeItem.value = {
-        subKey: props.subKey,
-        itemKey: props.path
+    if (sidebarService.activeItem.value === props.path) {
+        return
     }
+    sidebarService.activeSubItem.value = []
+    sidebarService.activeItem.value = props.path
+    sidebarService.activeSubItem.value.push(props.subKey)
 
     if (props.routerModule && props.path) {
         router.push(props.path)
     }
 }
 
-const isActive = computed(
-    () => sidebarService.activeItem.value.itemKey === props.path
-)
+const isActive = computed(() => sidebarService.activeItem.value === props.path)
 </script>
 
 <template>

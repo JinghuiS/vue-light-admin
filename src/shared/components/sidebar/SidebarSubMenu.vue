@@ -22,9 +22,20 @@ function subClick() {
     show.value = !show.value
 }
 
-const isActive = computed(
-    () => sidebarService.activeItem.value.subKey === props.path
-)
+const isActive = computed(() => {
+    const activeIndex = sidebarService.activeSubItem.value.findIndex(
+        (key) => key === props.path
+    )
+
+    if (activeIndex !== -1) {
+        props.subKey &&
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            sidebarService.activeSubItem.value.push(props.subKey)
+        return true
+    }
+
+    return false
+})
 </script>
 
 <template>
@@ -50,7 +61,7 @@ const isActive = computed(
                         :path="chi.path"
                         :label="chi.label"
                         :level="level + 1"
-                        :items="chi.children"
+                        :children="chi.children"
                         :key="chi.path"
                         :sub-key="path"
                     />

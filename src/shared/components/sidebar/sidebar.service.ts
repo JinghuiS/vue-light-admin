@@ -8,8 +8,7 @@ export type SidebarMenuItemType = {
 }
 
 export class SidebarService {
-    activeItem = ref({
-        subKey: '',
-        itemKey: ''
-    })
+    activeItem = ref('')
+
+    activeSubItem = ref<string[]>([])
 }
