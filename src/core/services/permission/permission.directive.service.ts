@@ -38,6 +38,7 @@ export class PermissionDirectiveService implements DirectiveImplements {
 
     switchStatusOfIf(el: any, value: string) {
         const cache = this.elMaps.get(el) as VNodeTreeCache
+
         // eslint-disable-next-line prefer-const
         let { parentEl, comment } = cache
         if (this.permissionService.checkPermission(value)) {
@@ -50,6 +51,9 @@ export class PermissionDirectiveService implements DirectiveImplements {
                 parentEl?.replaceChild(el, comment)
             }
         } else {
+            if (comment) {
+                return
+            }
             // 隐藏
             comment = document.createComment(this.completeDirectiveName)
             parentEl?.replaceChild(comment, el)

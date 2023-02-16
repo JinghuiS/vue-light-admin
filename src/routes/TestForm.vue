@@ -22,10 +22,10 @@ const Point = ref('test')
 
 <template>
     <div>
-        <Button @click="addPermission">增加test权限</Button>
-        <Button @click="deletePermission">删除test权限</Button>
-        <Button @click="change"> 修改权限隐藏 </Button>
-        <Button @click="Point = 'test'"> 修改权限展示 </Button>
-        <div v-permission="Point" @click="change">当权限为test时展示</div>
+        <Button @click="addPermission">增加全局test权限</Button>
+        <Button @click="deletePermission">删除全局test权限</Button>
+        <Button @click="change"> 修改权限点 </Button>
+        <Button @click="Point = 'test'"> 修改权限点为test </Button>
+        <div v-permission="Point" @click="change">当权限名为test时展示</div>
     </div>
 </template>
