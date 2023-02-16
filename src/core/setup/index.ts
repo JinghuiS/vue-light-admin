@@ -1,16 +1,12 @@
-import { AxiosHttpClient } from '@/shared/utils/http/axios'
-import { HttpModule } from '@/shared/utils/http/http.module'
-import { HTTP_CLIENT } from '@/shared/utils/http/token'
-import { vdi } from 'vdi'
 import { createApp, type Component } from 'vue'
-import { GlobalService } from '../services/global.service'
 import { setupComponents } from './components/setupComponents'
+import { setupDI } from './di/setupDi'
 import { setupRouter } from './router/setupRouter'
 
 /**
- * Created Vue Instance.
+ * Create a vue instance.
  *
- * Return the promise, where you can do some request actions.
+ * If the promise is returned, we can do some operations before the vue instance is mounted
  *
  * @param {Component} root component.
  *
@@ -19,7 +15,7 @@ import { setupRouter } from './router/setupRouter'
  *
  * 创建vue实例
  *
- * 返回promise的话，我们可以在vue实例挂载之前发送一些请求
+ * 返回promise的话，我们可以在vue实例挂载之前做一些操作
  *
  * @param {Component} 根组件.
  *
@@ -27,18 +23,7 @@ import { setupRouter } from './router/setupRouter'
  */
 export async function setupApp(app: Component) {
     const instance = createApp(app)
-    instance.use(
-        vdi([
-            [GlobalService],
-            ...HttpModule({}),
-            /**
-             * Inject http-client
-             * 注入http-client
-             */
-            [HTTP_CLIENT, { useClass: AxiosHttpClient }]
-        ])
-    )
-
+    setupDI(instance)
     setupRouter(instance)
     setupComponents(instance)
 
