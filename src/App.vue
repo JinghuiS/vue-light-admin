@@ -5,7 +5,7 @@ import { ModalProvider } from 'vue-modal-provider'
 
 <template>
     <!-- 
-        定义vue-modal-provider，来使用useModel
+        定义vue-modal-provider，来使用useModal
      -->
     <ModalProvider>
         <RouterView />
