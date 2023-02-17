@@ -26,5 +26,12 @@ export class StartupService {
         this.httpClient.get<MockData>('./mock.json').then((res) => {
             this.permissionService.setPermissionMenuList(res.menuList)
         })
+
+        /**Simulate a real request, wait for the end of the request to mount vue */
+        return new Promise((rs) => {
+            setTimeout(() => {
+                rs(true)
+            }, 1000)
+        })
     }
 }
