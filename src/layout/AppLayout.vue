@@ -16,7 +16,9 @@ onMounted(() => {
 <template>
     <div class="layout-wrapper">
         <AppMenu />
-        <div class="layout-main-container border-l border-l-slate-200">
+        <div
+            class="layout-main-container border-solid border-l border-l-slate-200"
+        >
             <div class="layout-main h-full px-8 py-6">
                 <router-view></router-view>
             </div>

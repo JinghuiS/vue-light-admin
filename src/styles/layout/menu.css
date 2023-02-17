@@ -24,3 +24,10 @@
     overflow: hidden;
     transition: max-height 1s ease-in-out;
 }
+
+.layout-submenu-angle-icon {
+    translate: all 1.5s;
+}
+.layout-submenu-angle-icon-expand {
+    transform: rotate(180deg);
+}
