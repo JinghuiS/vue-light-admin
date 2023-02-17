@@ -1,0 +1,14 @@
+{
+    "menuList": [
+        {
+            "path": "/permission-module",
+            "label": "权限",
+            "children": [
+                {
+                    "path": "/permission-button",
+                    "label": "按钮权限"
+                }
+            ]
+        }
+    ]
+}

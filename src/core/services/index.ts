@@ -1,6 +1,7 @@
 import type { Dependency } from '@wendellhu/redi'
 import { GlobalConfigService } from './globalConfig.service'
 import { PermissionModule } from './permission'
+import { StartupService } from './startup/startup.service'
 
 /**
  * Inject into the global service
@@ -10,5 +11,6 @@ import { PermissionModule } from './permission'
  */
 export const rootServiceList: Dependency[] = [
     [GlobalConfigService],
-    ...PermissionModule
+    ...PermissionModule,
+    [StartupService]
 ]

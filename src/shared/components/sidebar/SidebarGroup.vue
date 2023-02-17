@@ -5,6 +5,7 @@ import SideBarSubMenu from './SidebarSubMenu.vue'
 
 defineProps<{
     items: SidebarMenuItemType[]
+    routerModule?: boolean
 }>()
 
 onProvider([[SidebarService]])
@@ -12,6 +13,7 @@ onProvider([[SidebarService]])
 <template>
     <aside class="w-265px">
         <SideBarSubMenu
+            :routerModule="routerModule"
             class="px-6 py-2"
             v-for="menuItem in items"
             v-bind="menuItem"

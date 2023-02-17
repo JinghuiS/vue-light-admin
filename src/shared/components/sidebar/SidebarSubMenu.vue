@@ -12,6 +12,7 @@ const props = defineProps<{
     groupLabel?: string
     children?: SidebarMenuItemType[]
     subKey?: string
+    routerModule?: boolean
 }>()
 
 const sidebarService = useDependency(SidebarService)
@@ -28,6 +29,8 @@ const isActive = computed(() => {
     )
 
     if (activeIndex !== -1) {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        show.value = true
         props.subKey &&
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
             sidebarService.activeSubItem.value.push(props.subKey)
@@ -58,10 +61,9 @@ const isActive = computed(() => {
                 <div v-show="show">
                     <SidebarSubMenu
                         v-for="chi in children"
-                        :path="chi.path"
-                        :label="chi.label"
+                        v-bind="chi"
+                        :router-module="routerModule"
                         :level="level + 1"
-                        :children="chi.children"
                         :key="chi.path"
                         :sub-key="path"
                     />
@@ -73,6 +75,7 @@ const isActive = computed(() => {
                 paddingLeft: level * 20 + 'px'
             }"
             v-else
+            :router-module="routerModule"
             :label="label"
             :path="path"
             :sub-key="subKey || '/'"

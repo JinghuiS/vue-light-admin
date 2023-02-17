@@ -5,7 +5,8 @@
         "src/**/*",
         "src/**/*.vue",
         "components.d.ts",
-        "router.d.ts"
+        "router.d.ts",
+        "public/mock.json"
     ],
     "compilerOptions": {
         "experimentalDecorators": true,

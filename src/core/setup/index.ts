@@ -1,4 +1,8 @@
+import type { Injector } from '@wendellhu/redi'
+import { getGlobalInjector } from 'vdi'
 import { createApp, type Component } from 'vue'
+import { PermissionService } from '../services/permission/permission.service'
+import { StartupService } from '../services/startup/startup.service'
 import { setupComponents } from './components/setupComponents'
 import { setupDI } from './di/setupDI'
 import { setupRouter } from './router/setupRouter'
@@ -26,6 +30,12 @@ export async function setupApp(app: Component) {
     setupDI(instance)
     setupRouter(instance)
     setupComponents(instance)
+
+    const inject = getGlobalInjector(instance) as Injector
+
+    const startupService = inject.get(StartupService)
+
+    await startupService.load()
 
     return instance
 }
