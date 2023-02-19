@@ -6,10 +6,11 @@ export const routes: RouteRecordRaw[] = [
     {
         path: '/',
         component: AppLayoutVue,
+        redirect: '/welcome',
         children: [
             {
-                path: '/',
-                component: () => import('./TestForm.vue')
+                path: '/welcome',
+                component: () => import('./welcome/WelcomeView.vue')
             },
             ...PermissionRoutes
         ]
