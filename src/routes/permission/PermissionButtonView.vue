@@ -3,7 +3,9 @@ import { useDependency } from 'vdi'
 import { PermissionService } from '@/core/services/permission/permission.service'
 
 import { ref } from 'vue'
+import { LayoutService } from '@/layout/layout.service'
 
+const layoutService = useDependency(LayoutService)
 const permissionService = useDependency(PermissionService)
 
 function change() {
@@ -18,6 +20,7 @@ function deletePermission() {
 }
 
 const Point = ref('test')
+layoutService.hideHeader()
 </script>
 
 <template>
