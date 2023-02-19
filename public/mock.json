@@ -1,6 +1,10 @@
 {
     "menuList": [
         {
+            "path": "/welcome",
+            "label": "欢迎👏🏻"
+        },
+        {
             "path": "/permission-module",
             "label": "权限",
             "children": [
