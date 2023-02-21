@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import VueMacros from 'unplugin-vue-macros/vite'
 import UnoCSS from 'unocss/vite'
 import transformerDirectives from '@unocss/transformer-directives'
 
@@ -10,8 +10,13 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
-        vue(),
-        vueJsx(),
+        VueMacros({
+            betterDefine: true,
+            plugins: {
+                vue: vue(),
+                vueJsx: vueJsx() // if needed
+            }
+        }),
         UnoCSS({
             transformers: [transformerDirectives()]
         })
