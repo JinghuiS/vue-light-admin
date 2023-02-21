@@ -1,12 +1,10 @@
-<script lang="ts">
-export default {
-    name: 'VeeFormItem'
-}
-</script>
-
 <script setup lang="ts">
 import { toRef } from 'vue'
 import { useField } from 'vee-validate'
+
+defineOptions({
+    name: 'VeeFormItem'
+})
 
 const props = defineProps<{ name: string; label?: string }>()
 const field = useField<any>(toRef(props, 'name'))

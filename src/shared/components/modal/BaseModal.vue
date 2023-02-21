@@ -4,6 +4,10 @@ import { useModalRef } from 'vue-modal-provider'
 import { onProvider, useDependency } from 'vdi'
 import { PrimeModalService } from './prime-modal.service'
 
+defineOptions({
+    name: 'PrimeModal'
+})
+
 onProvider([[PrimeModalService]])
 
 const primeModalService = useDependency(PrimeModalService, { self: true })
