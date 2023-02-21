@@ -1,8 +1,5 @@
-import FormItem from '@shared/components/form/FormItem.vue'
-import { Form } from 'vee-validate'
+import { GlobalComponentListType } from '@shared/components'
+
 declare module 'vue' {
-    export interface GlobalComponents {
-        VeeFormItem: typeof FormItem
-        VeeForm: typeof Form
-    }
+    export interface GlobalComponents extends GlobalComponentListType {}
 }
