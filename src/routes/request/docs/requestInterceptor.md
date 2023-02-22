@@ -11,7 +11,7 @@
 
 <br />
 
-拦截器也是一个服务，最好写在`core/services`文件夹下,然后在`globalConfig.service.ts`文件中统一导出，这样更好管理
+拦截器也是一个服务，最好写在`core/services`文件夹下,然后在`core/services/index.ts`文件中统一导出，这样更好管理
 
 
 <br />
