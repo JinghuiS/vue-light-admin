@@ -4,8 +4,8 @@ import { createI18n } from 'vue-i18n'
 import zh from './lang/zh-cn'
 import en from './lang/en'
 import { langService } from './i18n.service'
-import { VUE_APP } from 'vdi'
-import { Inject } from '@wendellhu/redi'
+import { CREATED_VUE_APP_EXECUTION, VUE_APP } from 'vdi'
+import { Inject, type Dependency } from '@wendellhu/redi'
 import type { App } from 'vue'
 
 export class setupI18nService {
@@ -24,3 +24,8 @@ export class setupI18nService {
         app.use(i18n)
     }
 }
+
+export const I18nModule = (): Dependency[] => [
+    [langService],
+    [CREATED_VUE_APP_EXECUTION, { useClass: setupI18nService }]
+]
