@@ -1,5 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import AppTag from './AppTag.vue'
+</script>
 
 <template>
-    <div>header</div>
+    <div>
+        <AppTag />
+    </div>
 </template>

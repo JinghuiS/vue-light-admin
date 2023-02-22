@@ -8,10 +8,6 @@ import { LayoutService } from './layout.service'
 onProvider([[LayoutService]])
 
 const layoutService = useDependency(LayoutService, { self: true })
-
-onMounted(() => {
-    layoutService.applyScale()
-})
 </script>
 
 <template>

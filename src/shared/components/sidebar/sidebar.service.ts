@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { createEventHook } from '@vueuse/core'
 
 export type SidebarMenuItemType = {
     path: string
@@ -9,6 +10,8 @@ export type SidebarMenuItemType = {
 
 export class SidebarService {
     activeItem = ref('')
+
+    activeMenuItem = createEventHook<{ label: string; path: string }>()
 
     activeSubItem = ref<string[]>([])
 }

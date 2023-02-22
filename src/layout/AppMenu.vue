@@ -2,8 +2,11 @@
 import SidebarGroup from '@/shared/components/sidebar/SidebarGroup.vue'
 import { PermissionService } from '@/core/services/permission/permission.service'
 import { useDependency } from 'vdi'
+import { LayoutService } from './layout.service'
 
 const permissionService = useDependency(PermissionService)
+
+const layoutService = useDependency(LayoutService)
 </script>
 <template>
     <div class="h-screen overflow-y-scroll">
@@ -13,6 +16,7 @@ const permissionService = useDependency(PermissionService)
             </p>
         </div>
         <SidebarGroup
+            @active-menu="layoutService.setTabItem"
             :router-module="true"
             :items="permissionService.permissionMenuList.value"
         />

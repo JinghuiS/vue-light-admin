@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useDependency } from 'vdi'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { SidebarService } from './sidebar.service'
 
@@ -24,17 +24,31 @@ function menuItemClick() {
     sidebarService.activeSubItem.value.push(props.subKey)
 
     if (props.routerModule && props.path) {
+        sidebarService.activeMenuItem.trigger(props)
+
         router.push(props.path)
     }
 }
 
 const isActive = computed(() => sidebarService.activeItem.value === props.path)
 
+watch(
+    () => route.path,
+    () => {
+        if (route.path === props.path) {
+            sidebarService.activeSubItem.value = []
+            sidebarService.activeItem.value = props.path
+            sidebarService.activeSubItem.value.push(props.subKey)
+        }
+    }
+)
+
 onMounted(() => {
     if (route.path === props.path) {
         sidebarService.activeSubItem.value = []
         sidebarService.activeItem.value = props.path
         sidebarService.activeSubItem.value.push(props.subKey)
+        sidebarService.activeMenuItem.trigger(props)
     }
 })
 </script>

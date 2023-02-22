@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onProvider } from 'vdi'
+import { onProvider, useDependency } from 'vdi'
 import { SidebarService, type SidebarMenuItemType } from './sidebar.service'
 import SideBarSubMenu from './SidebarSubMenu.vue'
 
@@ -8,7 +8,17 @@ defineProps<{
     routerModule?: boolean
 }>()
 
+const emit = defineEmits<{
+    (event: 'active-menu', item: { label: string; path: string }): void
+}>()
+
 onProvider([[SidebarService]])
+
+const sidebarService = useDependency(SidebarService, { self: true })
+
+sidebarService.activeMenuItem.on((v) => {
+    emit('active-menu', v)
+})
 </script>
 <template>
     <aside class="w-265px">

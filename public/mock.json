@@ -13,6 +13,16 @@
                     "label": "按钮权限"
                 }
             ]
+        },
+        {
+            "path": "/table-module",
+            "label": "表格",
+            "children": [
+                {
+                    "path": "/table-base",
+                    "label": "基础表格"
+                }
+            ]
         }
     ]
 }
