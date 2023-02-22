@@ -14,10 +14,13 @@ const layoutService = useDependency(LayoutService, { self: true })
     <div class="layout-wrapper">
         <AppMenu />
         <div
-            class="layout-main-container border-solid border-l border-l-slate-200"
+            class="layout-main-container flex flex-1 h-screen border-solid border-l border-l-slate-200"
         >
-            <div class="layout-main h-full px-8 py-6">
-                <AppHeader v-if="layoutService.config.value.showHeader" />
+            <AppHeader
+                class="px-8 py-6"
+                v-if="layoutService.config.value.showHeader"
+            />
+            <div class="layout-main flex-1 overflow-y-scroll px-8 py-6">
                 <router-view class="mt-2"></router-view>
             </div>
         </div>

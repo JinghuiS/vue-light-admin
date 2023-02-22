@@ -49,6 +49,11 @@ watch(
         }
     }
 )
+watchArray(refs.value, () => {
+    if (refs.value.length === 1) {
+        getActiveTab(0)
+    }
+})
 </script>
 <template>
     <div
