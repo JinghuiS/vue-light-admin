@@ -8,5 +8,10 @@
 }
 
 .layout-main {
-    flex: 1 1 auto;
+    width: 100%;
+    background-size: 5px 5px;
+    background-image: radial-gradient(
+        hsla(215 28% 17% / 0.2) 0.5px,
+        hsla(0 0% 95% / 1) 0.5px
+    );
 }

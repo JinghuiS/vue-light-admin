@@ -23,6 +23,21 @@
                     "label": "基础表格"
                 }
             ]
+        },
+        {
+            "path": "/request-module",
+            "label": "请求",
+            "children": [
+                {
+                    "path": "/request-base",
+                    "label": "请求的基础使用"
+                },
+                {
+                    "path": "/request-interceptor",
+                    "label": "注册拦截器"
+                }
+            ]
         }
-    ]
+    ],
+    "tableData": []
 }
