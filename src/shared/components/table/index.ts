@@ -1,5 +1,5 @@
 import BaseTable from './BaseTable.vue'
+import BaseTableColumns from './BaseTableColumns.vue'
+const tableComponentList = [BaseTable, BaseTableColumns]
 
-const tableComponentList = [BaseTable]
-
-export { tableComponentList, BaseTable }
+export { tableComponentList, BaseTable, BaseTableColumns }

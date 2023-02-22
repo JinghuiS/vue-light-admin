@@ -1,6 +1,8 @@
 import { fileURLToPath, URL } from 'node:url'
 import VueMacros from 'unplugin-vue-macros/vite'
 import UnoCSS from 'unocss/vite'
+import presetIcons from '@unocss/preset-icons'
+import presetUno from '@unocss/preset-uno'
 import transformerDirectives from '@unocss/transformer-directives'
 
 import { defineConfig } from 'vite'
@@ -36,7 +38,13 @@ export default defineConfig({
             wrapperClasses: 'prose prose-sm m-auto text-left'
         }),
         UnoCSS({
-            transformers: [transformerDirectives()]
+            transformers: [transformerDirectives()],
+            presets: [
+                //@ts-ignore
+                presetIcons({}),
+                presetUno()
+                // ...other presets
+            ]
         })
     ],
     resolve: {
