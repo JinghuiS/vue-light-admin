@@ -21,6 +21,7 @@
         "vdi": "^1.4.0",
         "vee-validate": "^4.7.3",
         "vue": "^3.2.45",
+        "vue-i18n": "^9.2.2",
         "vue-modal-provider": "^0.1.2",
         "vue-router": "^4.1.6",
         "yup": "^0.32.11"
