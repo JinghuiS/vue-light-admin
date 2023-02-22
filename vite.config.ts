@@ -6,6 +6,9 @@ import transformerDirectives from '@unocss/transformer-directives'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import Markdown from 'vite-plugin-vue-markdown'
+
+import Shiki from 'markdown-it-shiki'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,9 +16,24 @@ export default defineConfig({
         VueMacros({
             betterDefine: true,
             plugins: {
-                vue: vue(),
+                vue: vue({
+                    include: [/\.vue$/, /\.md$/] // <--
+                }),
                 vueJsx: vueJsx() // if needed
             }
+        }),
+        Markdown({
+            markdownItOptions: {
+                html: true,
+                linkify: true,
+                typographer: true
+            },
+            markdownItSetup(md) {
+                md.use(Shiki, {
+                    theme: 'github-light'
+                })
+            },
+            wrapperClasses: 'prose prose-sm m-auto text-left'
         }),
         UnoCSS({
             transformers: [transformerDirectives()]

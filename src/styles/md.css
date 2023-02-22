@@ -1,0 +1,55 @@
+.prose pre:not(.shiki) {
+    padding: 0;
+}
+
+.prose .shiki {
+    font-family: 'DM Mono', monospace;
+    /* font-size: 1.2em; */
+    line-height: 1.4;
+    padding: 20px;
+}
+
+.prose img {
+    width: 100%;
+}
+
+.shiki-light {
+    /* background: #f8f8f8 !important; */
+    --color-canvas-subtle: #f6f8fa;
+}
+
+.shiki-dark {
+    background: #0e0e0e !important;
+    --color-canvas-subtle: #f6f8fa;
+}
+
+.prose .github-light {
+    background: #f6f8fa !important;
+}
+.prose p code {
+    padding: 2px 4px !important;
+    border-radius: 5px;
+    background: #f6f8fa !important;
+}
+.prose p {
+    @apply text-slate-700 text-sm font-medium;
+}
+
+@media (prefers-color-scheme: dark) {
+    .shiki-light {
+        display: none;
+    }
+}
+
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+    .shiki-dark {
+        display: none;
+    }
+}
+html.dark .shiki-light {
+    display: none;
+}
+
+html:not(.dark) .shiki-dark {
+    display: none;
+}

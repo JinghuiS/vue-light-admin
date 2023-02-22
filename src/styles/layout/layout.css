@@ -1,6 +1,6 @@
 @import './menu.css';
 @import './variables.css';
-/* @import './content.css'; */
+@import './content.css';
 @import './responsive.css';
 a {
     text-decoration: none;
