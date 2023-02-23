@@ -12,6 +12,10 @@ import Calendar from 'primevue/calendar'
 import InputText from 'primevue/inputtext'
 import ProgressSpinner from 'primevue/progressspinner'
 
+import Avatar from 'primevue/avatar'
+import SplitButton from 'primevue/splitbutton'
+import Menu from 'primevue/menu'
+
 import Dialog from 'primevue/dialog'
 
 // table
@@ -29,6 +33,9 @@ const PrimeComponents: Component[] = [
     InputText,
     Dialog,
     ProgressSpinner,
+    Avatar,
+    SplitButton,
+    Menu,
 
     // table
     DataTable,
