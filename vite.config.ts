@@ -42,6 +42,7 @@ export default defineConfig({
             presets: [
                 //@ts-ignore
                 presetIcons({}),
+                //@ts-ignore
                 presetUno()
                 // ...other presets
             ]
