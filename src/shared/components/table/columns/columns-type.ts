@@ -1,6 +1,6 @@
 import type { ColumnProps } from 'primevue/column'
 import { ClassComponent } from 'primevue/ts-helpers'
-import type { VNode } from 'vue'
+import type { Component, VNode } from 'vue'
 
 export type ColumnDataType = 'serial'
 
@@ -8,7 +8,7 @@ export interface LightColumnsType extends ColumnProps {
     bodySlot?: string
     headerSlot?: string
     filter?: string
-    dataType?: ColumnDataType
+    columnType?: ColumnDataType | Component
     field: string
 }
 interface LightColumnsSlots {

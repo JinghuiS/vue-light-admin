@@ -5,7 +5,7 @@ const columns: LightColumnsType[] = [
     {
         field: 'no',
         header: '序号',
-        dataType: 'serial'
+        columnType: 'serial'
     },
     {
         field: 'abb',
@@ -13,7 +13,7 @@ const columns: LightColumnsType[] = [
         bodySlot: 'as'
     }
 ]
-const data = []
+const data = [{ abb: '12121' }]
 </script>
 <template>
     <div>

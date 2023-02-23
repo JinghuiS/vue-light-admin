@@ -88,9 +88,9 @@ const columns = computed(() => {
                         v-bind="slotProps"
                     />
                 </template>
-                <template v-else-if="column.dataType" #body="slotProps">
+                <template v-else-if="column.columnType" #body="slotProps">
                     <ColumnTypeSelect
-                        :type="column.dataType"
+                        :type="column.columnType"
                         :data="slotProps"
                     />
                 </template>

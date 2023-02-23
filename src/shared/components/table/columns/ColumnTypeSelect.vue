@@ -13,5 +13,6 @@ const columnTypeList: Record<ColumnDataType, Component> = {
 }
 </script>
 <template>
-    <component :is="columnTypeList[type]" v-bind="data" />
+    <component v-if="typeof type !== 'string'" :is="type" />
+    <component v-else :is="columnTypeList[type]" v-bind="data" />
 </template>
