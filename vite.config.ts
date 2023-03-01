@@ -5,6 +5,8 @@ import presetIcons from '@unocss/preset-icons'
 import presetUno from '@unocss/preset-uno'
 import transformerDirectives from '@unocss/transformer-directives'
 
+import AutoImport from 'unplugin-auto-import/vite'
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -23,6 +25,29 @@ export default defineConfig({
                 }),
                 vueJsx: vueJsx() // if needed
             }
+        }),
+        AutoImport({
+            imports: [
+                'vue',
+                'vue-router',
+                'vue-i18n',
+                'vue/macros',
+                '@vueuse/core',
+                {
+                    vdi: ['useDependency', 'onProvider', 'vdi']
+                },
+                {
+                    'vue-modal-provider': [
+                        'useModal',
+                        'useModalRef',
+                        'ModalProvider',
+                        'ModalContext'
+                    ]
+                }
+            ],
+            dts: 'src/auto-imports.d.ts',
+            dirs: ['src/shared', 'src/core'],
+            vueTemplate: true
         }),
         Markdown({
             markdownItOptions: {
