@@ -46,7 +46,7 @@ export default defineConfig({
                 }
             ],
             dts: 'src/auto-imports.d.ts',
-            dirs: ['src/shared', 'src/core'],
+            dirs: ['src/shared', 'src/shared/utils', 'src/core'],
             vueTemplate: true
         }),
         Markdown({
