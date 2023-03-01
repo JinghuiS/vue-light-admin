@@ -9,7 +9,7 @@ import { ref, type Ref } from 'vue'
  *
  */
 export function elementRef<
-    ElementRef extends HTMLElement | SVGElement | Component | null
+    ElementRef extends HTMLElement | SVGElement
 >(): Ref<ElementRef>
 /**
  *
