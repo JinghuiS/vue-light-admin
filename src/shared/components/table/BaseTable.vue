@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { DataTableProps } from 'primevue/datatable'
+import type { DataTableEmits, DataTableProps } from 'primevue/datatable'
 import {
     computed,
     useSlots,
@@ -75,8 +75,16 @@ const columns = computed(() => {
                 :key="column.field"
                 v-bind="column"
             >
+                <template v-if="column.render" #body="slotProps">
+                    <component
+                        :is="column.render ? column.render(slotProps) : ''"
+                    />
+                </template>
+
                 <template
-                    v-if="column.bodySlot && columns?.slots[column.bodySlot]"
+                    v-else-if="
+                        column.bodySlot && columns?.slots[column.bodySlot]
+                    "
                     #body="slotProps"
                 >
                     <component

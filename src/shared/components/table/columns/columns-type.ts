@@ -1,3 +1,4 @@
+import type Column from 'primevue/column'
 import type { ColumnProps } from 'primevue/column'
 import { ClassComponent } from 'primevue/ts-helpers'
 import type { Component, VNode } from 'vue'
@@ -10,38 +11,41 @@ export interface LightColumnsType extends ColumnProps {
     filter?: string
     columnType?: ColumnDataType | Component
     field: string
+    render?: (scope: LightColumnsSlotScope) => Component
+}
+
+export interface LightColumnsSlotScope {
+    /**
+     * Row data.
+     */
+    data: any
+    /**
+     * Row node data.
+     */
+    node: any
+    /**
+     * Column node.
+     */
+    column: Column
+    /**
+     * Column field.
+     */
+    field: string
+    /**
+     * Row index.
+     */
+    index: number
+    /**
+     * Whether the row is frozen.
+     */
+    frozenRow: boolean
+    /**
+     * Callback function
+     */
+    editorInitCallback: () => void
 }
 interface LightColumnsSlots {
-    [key: string]: (scope: {
-        /**
-         * Row data.
-         */
-        data: any
-        /**
-         * Row node data.
-         */
-        node: any
-        /**
-         * Column node.
-         */
-        column: LightColumnsType
-        /**
-         * Column field.
-         */
-        field: string
-        /**
-         * Row index.
-         */
-        index: number
-        /**
-         * Whether the row is frozen.
-         */
-        frozenRow: boolean
-        /**
-         * Callback function
-         */
-        editorInitCallback: () => void
-    }) => VNode[]
+    [key: string]: (scope: LightColumnsSlotScope) => VNode[]
 }
 
 export class BaseTableColumnsType extends ClassComponent<
