@@ -21,6 +21,10 @@
                 {
                     "path": "/table-base",
                     "label": "基础表格"
+                },
+                {
+                    "path": "/tree-table-base",
+                    "label": "树形表格"
                 }
             ]
         },
