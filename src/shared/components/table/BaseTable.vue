@@ -111,7 +111,7 @@ const columns = computed(() => {
                     <component
                         :is="
                             columns?.slots[
-                                column.bodySlot ? column.bodySlot : ''
+                                column.headerSlot ? column.headerSlot : ''
                             ]
                         "
                         v-bind="slotProps"
